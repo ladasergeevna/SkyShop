@@ -24,7 +24,7 @@ public class BasketService {
 
     public void addProduct(UUID productId) {
         if (storageService.getProductById(productId).isPresent() == false) {
-           throw new  NoSuchProductException();
+            throw new NoSuchProductException();
         }
         productBasket.addProduct(productId);
     }
