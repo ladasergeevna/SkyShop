@@ -89,5 +89,4 @@ public class BasketServiceTest {
         List<BasketItem> expectedItems = Collections.singletonList(basketItem);
         assertEquals(expectedItems, userBasket.getBasketItems());
     }
-
 }

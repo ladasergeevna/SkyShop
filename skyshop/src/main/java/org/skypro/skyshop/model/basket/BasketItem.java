@@ -32,4 +32,5 @@ public final class BasketItem {
     public int hashCode() {
         return Objects.hash(products, quantity);
     }
+
 }

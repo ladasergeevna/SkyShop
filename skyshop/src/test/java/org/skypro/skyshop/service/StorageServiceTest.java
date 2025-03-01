@@ -65,5 +65,4 @@ public class StorageServiceTest {
         Optional<Product> product = storageService.getProductById(nonExistentProductId);
         assertEquals(Optional.empty(), product);
     }
-
 }
