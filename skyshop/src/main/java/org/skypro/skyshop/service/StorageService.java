@@ -33,6 +33,7 @@ public class StorageService {
         Article sweetArticle = new Article("Инфо о конфетах в упаковке", "Конфеты из молочного шоколада в подарочной коробке", UUID.randomUUID());
         Article chocolateArticle = new Article("Инфо о конфетах", "Конфеты из молочного шоколада с начинкой из шоколада", UUID.randomUUID());
         Article lollipopArticle = new Article("Инфо о леденцах", "Конфеты леденцовые", UUID.randomUUID());
+
         this.products.put(UUID.fromString("00000000-0000-0000-0000-000000000000"), rollers);
         this.products.put(dress.getId(), dress);
         this.products.put(cream.getId(), cream);

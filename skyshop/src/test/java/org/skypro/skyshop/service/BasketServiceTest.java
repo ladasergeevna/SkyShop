@@ -30,7 +30,6 @@ public class BasketServiceTest {
     @InjectMocks
     private BasketService basketService = new BasketService(
             new ProductBasket(), new StorageService());
-
     @BeforeEach
     void setUp() {
         productBasket = Mockito.mock(ProductBasket.class);

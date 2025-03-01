@@ -28,7 +28,6 @@ public final class BasketItem {
         BasketItem that = (BasketItem) o;
         return Objects.equals(products, that.products) && Objects.equals(quantity, that.quantity);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(products, quantity);
