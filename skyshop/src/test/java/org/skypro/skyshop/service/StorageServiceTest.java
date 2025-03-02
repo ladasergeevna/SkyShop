@@ -22,12 +22,6 @@ public class StorageServiceTest {
     @InjectMocks
     private StorageService storageService;
 
-
-    @BeforeEach
-    void setUp() {
-        storageService = new StorageService();
-    }
-
    // Поиск в случае отсутствия объектов в  StorageService
     @Test
     void testGetSearchablesWhenNoProductsOrArticles() {

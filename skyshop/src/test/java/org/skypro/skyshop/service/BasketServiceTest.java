@@ -28,14 +28,7 @@ public class BasketServiceTest {
     @Mock
     StorageService storageService;
     @InjectMocks
-    private BasketService basketService = new BasketService(
-            new ProductBasket(), new StorageService());
-    @BeforeEach
-    void setUp() {
-        productBasket = Mockito.mock(ProductBasket.class);
-        storageService = Mockito.mock(StorageService.class);
-        basketService = new BasketService(productBasket, storageService);
-    }
+    private BasketService basketService;
 
     // Проверка сценария - Добавление несуществующего товара в корзину приводит к выбросу исключения
     @Test
@@ -89,4 +82,6 @@ public class BasketServiceTest {
         List<BasketItem> expectedItems = Collections.singletonList(basketItem);
         assertEquals(expectedItems, userBasket.getBasketItems());
     }
+
+
 }
