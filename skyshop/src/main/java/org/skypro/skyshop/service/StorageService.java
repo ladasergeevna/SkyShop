@@ -22,7 +22,7 @@ public class StorageService {
         addData();
     }
 
-    private void addData() {
+    void addData() {
         Product dress = new SimpleProduct("Платье", 3000, UUID.randomUUID());
         Product rollers = new SimpleProduct("Ролики", 2500, UUID.randomUUID());
         Product cream = new FixPriceProduct("Крем", UUID.randomUUID());
@@ -62,6 +62,11 @@ public class StorageService {
 
     public Optional<Product> getProductById(UUID productId) {
         return Optional.ofNullable(products.get(productId));
+    }
+
+    public void clearData() {
+        products.clear();
+        articles.clear();
     }
 
 }

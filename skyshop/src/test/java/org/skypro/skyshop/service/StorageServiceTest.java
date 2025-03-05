@@ -14,17 +14,18 @@ import org.skypro.skyshop.model.search.Searchable;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 public class StorageServiceTest {
     @InjectMocks
     private StorageService storageService;
 
-   // Поиск в случае отсутствия объектов в  StorageService
+    // Поиск в случае отсутствия объектов в  StorageService
+
     @Test
     void testGetSearchablesWhenNoProductsOrArticles() {
+        storageService.clearData();
         Collection<Product> products = storageService.getProducts();
         Collection<Article> articles = storageService.getArticles();
 
@@ -35,22 +36,21 @@ public class StorageServiceTest {
 
     // Поиск, когда есть подходящий объект в StorageService
     @Test
-    void testGetExistingSearchable()  {
+    void testGetExistingSearchable() {
         Product dress = new SimpleProduct("Платье", 3000, UUID.randomUUID());
         List<Searchable> searchables = storageService.getSearchables();
 
         boolean containsDress = searchables.stream().anyMatch(p -> p.equals(dress));
-        assertTrue(containsDress, "Нет товара с наименованием " + dress.getName() + ". А должно");
+        assertTrue(containsDress, "Товар " + dress.getName() + " в наличии");
     }
 
     // Поиск в случае, если объекты в StorageService есть, но нет подходящего
     @Test
     void testGetNonExistingSearchable() {
-        Article dressRedArticle = new Article("Инфо о черном платье", "Платье черное 52 размера", UUID.randomUUID());
+        Article dressBlackArticle = new Article("Инфо о черном платье", "Платье черное 52 размера", UUID.randomUUID());
         List<Searchable> searchables = storageService.getSearchables();
-
-        boolean containsLollipopArticle = searchables.stream().anyMatch(a -> a.equals(dressRedArticle));
-        assertTrue(containsLollipopArticle, "Список должен содержать статью " + dressRedArticle.getSearchTerm() + ". Ее нет");
+        boolean containsDressBlackArticle = searchables.stream().anyMatch(a -> a.equals(dressBlackArticle));
+        assertFalse(containsDressBlackArticle, "Список не должен содержать статью " + dressBlackArticle.getSearchTerm());
     }
 
     @Test
